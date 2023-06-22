@@ -1,9 +1,11 @@
-
+import Header from "./header";
+import Products from "./products";
 
 const Layout = () => {
   return (
     <div>
-      <h1>Welcome to our store</h1>
+      <Header />
+      <Products />
     </div>
   )
 }

@@ -9,7 +9,7 @@ function App() {
   console.log(isLoggedIn);
 
   return (
-    <div className="w-full h-screen bg-blue-100 flex">
+    <div className="w-full h-screen bg-blue-100 grid ">
       { isLoggedIn ? <Layout /> : <Authentication /> }
     </div>
   );
