@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import Authentication from "./components/authentication";
+import Layout from "./components/layout";
+
+import { useSelector } from "react-redux";
 
 function App() {
+
+  const isLoggedIn = useSelector(state => state.authentication.isLoggedIn)
+  console.log(isLoggedIn);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full h-screen bg-blue-100 flex">
+      { isLoggedIn ? <Layout /> : <Authentication /> }
     </div>
   );
 }
