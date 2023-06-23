@@ -1,10 +1,11 @@
 import { useSelector, useDispatch} from "react-redux";
 import { showCart } from "../store/cart-slice";
+import CartItems from "./cartItems";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const quantity = useSelector(state => state.cart.totalQuantity)
 
+  const quantity = useSelector(state => state.cart.totalQuantity)
   const show = useSelector(state => state.cart.showCart)
 
   const handleClick = () => {
@@ -12,11 +13,9 @@ const Cart = () => {
   }
 
   return (
-    <div onClick={handleClick}>
-      <h3>Cart: {quantity} Items</h3>
-      { show && <div>
-        <p>Cart content</p>
-      </div> }
+    <div className="relative hover:cursor-pointer">
+      <h3 onClick={handleClick}>Cart: {quantity} Items</h3>
+      { show && <CartItems /> }
     </div>
   )
 }

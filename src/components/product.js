@@ -8,7 +8,8 @@ const Product = (props) => {
     const clicked = {
       id: id,
       name: name,
-      price: price
+      price: price,
+      img: img
     }
    dispatch(addToCart(clicked))
   }
