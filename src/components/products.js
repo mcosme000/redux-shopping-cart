@@ -50,7 +50,7 @@ const renderProducts = products_data.map((product, index) => {
 
 const Products = () => {
   return (
-    <div className="p-8 grid gap-3.5 grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+    <div className="p-8 grid gap-3.5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {renderProducts}
     </div>
   );
