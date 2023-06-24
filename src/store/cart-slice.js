@@ -35,7 +35,18 @@ const cartSlice = createSlice({
       }
     },
 
-    removeFromCart() {},
+    removeFromCart(state, action) {
+      const id = action.payload
+      const existingItem = state.itemsList.find(item => item.id === id)
+
+      if (existingItem.quantity === 1) {
+        state.itemsList = state.itemsList.filter(item => item !== existingItem)
+        state.totalQuantity--;
+      } else if (existingItem.quantity > 1) {
+        existingItem.quantity -= 1
+        existingItem.totalPrice -= existingItem.price
+      }
+    },
 
     showCart(state) {
       state.showCart = !state.showCart
@@ -43,5 +54,5 @@ const cartSlice = createSlice({
   }
 })
 
-export const { addToCart, showCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, showCart } = cartSlice.actions;
 export default cartSlice;

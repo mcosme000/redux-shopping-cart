@@ -4,10 +4,11 @@ import { useSelector } from "react-redux";
 const CartItems = () => {
 
   const cartItems = useSelector(state => state.cart.itemsList)
-  
+
   const renderCartItems = cartItems.map((item) => {
     return <CartItem
       key={item.id}
+      id={item.id}
       name={item.name}
       price={item.price}
       quantity={item.quantity}
